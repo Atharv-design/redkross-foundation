@@ -32,6 +32,8 @@ scratch/
 RedKross-Frames/
 public/screenshots/
 *.py
+*.pdf
+*.docx
 SAFE_POINT.json
 downloaded_assets.json
 redkross_page.html
