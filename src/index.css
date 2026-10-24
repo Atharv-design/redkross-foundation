@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rk-orange: #E57A00;
+  --rk-amber: #F0A500;
+  --rk-teal: #0FB7B7;
+  --rk-teal-bright: #1ED8D8;
+  --rk-bg: #060608;
+  --rk-card: #0b0b0f;
+}
+
+body {
+  background-color: #060608;
+  color: #e5e7eb;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Cyber & Dot Grids from Official Site */
+.cyber-grid-bg {
+  background-image: 
+    linear-gradient(rgba(229, 122, 0, 0.04) 1px, transparent 0),
+    linear-gradient(90deg, rgba(229, 122, 0, 0.04) 1px, transparent 0);
+  background-size: 60px 60px;
+}
+
+.dot-grid-bg {
+  background-image: radial-gradient(rgba(229, 122, 0, 0.12) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.cyber-grid-teal {
+  background-image: 
+    linear-gradient(rgba(15, 183, 183, 0.05) 1px, transparent 0),
+    linear-gradient(90deg, rgba(15, 183, 183, 0.05) 1px, transparent 0);
+  background-size: 60px 60px;
+}
+
+.dot-grid-teal {
+  background-image: radial-gradient(rgba(15, 183, 183, 0.12) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Glass & Neon Borders */
+.glass {
+  background: rgba(229, 122, 0, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 122, 0, 0.12);
+}
+
+.glass-teal {
+  background: rgba(15, 183, 183, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 183, 183, 0.15);
+}
+
+.glass-dark {
+  background: rgba(11, 11, 15, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.neon-border {
+  border: 1px solid rgba(229, 122, 0, 0.22);
+  box-shadow: 0 0 28px rgba(229, 122, 0, 0.06), inset 0 0 28px rgba(229, 122, 0, 0.02);
+}
+
+.neon-border-teal {
+  border: 1px solid rgba(15, 183, 183, 0.25);
+  box-shadow: 0 0 28px rgba(15, 183, 183, 0.08), inset 0 0 28px rgba(15, 183, 183, 0.02);
+}
+
+/* Gradient Text */
+.gradient-text,
+.gradient-text .char,
+.gradient-text .split-char,
+.gradient-text span {
+  background: linear-gradient(135deg, #e57a00, #f0a500) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
+}
+
+.gradient-text-teal,
+.gradient-text-teal .char,
+.gradient-text-teal .split-char,
+.gradient-text-teal span {
+  background: linear-gradient(135deg, #0fb7b7, #1ed8d8) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
+}
+
+.gradient-text-mixed,
+.gradient-text-mixed .char,
+.gradient-text-mixed .split-char,
+.gradient-text-mixed span {
+  background: linear-gradient(135deg, #e57a00 0%, #f0a500 40%, #0fb7b7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23232c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E57A00;
+}
+
+/* Pulse Rings */
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 3s ease-in-out infinite;
+}
+
+/* Word by Word Animation */
+@keyframes wordReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+.word-reveal {
+  display: inline-block;
+  opacity: 0;
+  animation: wordReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll Fade In Up */
+.scroll-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Radar Sweep */
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-radar {
+  animation: radarSweep 6s linear infinite;
+}
+
+/* Neural Synapse Pulse */
+@keyframes synapseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.98);
+    box-shadow: 0 0 15px rgba(15, 183, 183, 0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+    box-shadow: 0 0 35px rgba(15, 183, 183, 0.7);
+  }
+}
+
+.animate-synapse {
+  animation: synapseGlow 4s ease-in-out infinite;
+}
+
+/* Authentic RedKross Pulse Ring Animation */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
