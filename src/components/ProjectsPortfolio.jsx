@@ -23,25 +23,12 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProjectsPortfolio() {
   const { projects } = REDKROSS_DATA;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeFilter, setActiveFilter] = useState('All');
 
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const telemetryRef = useRef(null);
 
-  const categories = [
-    'All',
-    'AI Security',
-    'Cybersecurity & Security Engineering',
-    'IoT, Cloud & Emerging',
-    'Threat Intelligence & Detection'
-  ];
-
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(p => p.domain === activeFilter);
-
-  const activeProject = filteredProjects[activeIndex % filteredProjects.length] || projects[0];
+  const activeProject = projects[activeIndex % projects.length] || projects[0];
 
 
 

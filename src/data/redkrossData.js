@@ -19,7 +19,7 @@ export const REDKROSS_DATA = {
     ngoDarpanStatus: "Registered (Darpan Unique ID verification pending formal issuance)",
     registeredAddress: "11219 Mahadev Colony, near Samsan Road / Saini Chakki, Panipat, Haryana 132103, India",
     publicContact: {
-      email: "info@redkross.org.in",
+      email: "contact@redkross.org.in",
       inquiryEmail: "contact@redkross.org.in",
       phone: "+91 73032 63719"
     },
@@ -79,15 +79,19 @@ export const REDKROSS_DATA = {
       bio: "Oversees executive operations, cross-domain coordination and external partnerships across technology and human wellbeing."
     },
     {
-      name: "Upasna Solanki",
+      name: "Upasana Solanki",
       role: "Department Head",
       badge: "Academic & Research Head",
+      image: "/assets/team/upasana-solanki.jpg",
+      linkedin: "https://www.linkedin.com/in/upasana-solanki",
       bio: "Directs research standards, curriculum design and department workflows across interdisciplinary initiatives."
     },
     {
-      name: "Atharva Gupta",
+      name: "Atharv .R. Gupta",
       role: "Development Head",
       badge: "Engineering & Architecture",
+      image: "/assets/team/atharv-gupta.jpg",
+      linkedin: "https://www.linkedin.com/in/atharv-gupta-930009403",
       bio: "Leads platform architecture, cybersecurity engineering, lab isolation frameworks and technical development."
     }
   ],

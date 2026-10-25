@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import DoodleCrewFooter from '@/components/ui/doodle-crew-footer-sunny';
 
-export default function Footer() {
+export default function Footer({ onOpenInventory }) {
   const { institution, pillars, governance } = REDKROSS_DATA;
 
   return (
@@ -161,16 +161,17 @@ export default function Footer() {
             showTop={false}
             showBar={false}
             wordmark="REDKROSS"
+            subWordmark="RESEARCH FOUNDATION"
             wordmarkColorMode="logo"
             tagline="Pioneering Defensive Cyber Architecture & Behavioral Intelligence"
-            height="460px"
+            height="520px"
             palette={{
               background: "#030406",
               ink: "#f9fafb",
               accent: "#E57A00"
             }}
             crew={[
-              { kind: "yeti", letter: 0, seat: "front", offset: -0.05, says: "Defending networks & critical infrastructure!" },
+              { kind: "yeti", letter: 0, seat: "front", scale: 0.44, offset: -0.32, says: "Defending networks & critical infrastructure!" },
               { kind: "bird", letter: 1, seat: "top", offset: 0.08, says: "Telemetry & vulnerability audit clean!" },
               { kind: "ghost", letter: 2, seat: "behind", offset: 0.0, says: "Hidden threat vectors neutralized!" },
               { kind: "cat", letter: 3, seat: "top", offset: 0.05, says: "Cognitive security loops active!" },
@@ -193,8 +194,16 @@ export default function Footer() {
           <div>
             &copy; {new Date().getFullYear()} {institution.name}. All verified rights reserved.
           </div>
-          <div className="flex items-center gap-4">
-            <span>Incorporation CIN: {institution.cin}</span>
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              onClick={onOpenInventory}
+              className="text-[#FFA439] hover:underline cursor-pointer flex items-center gap-1 font-semibold"
+            >
+              <FileCheck2 className="w-3.5 h-3.5" />
+              <span>Evidence Registry</span>
+            </button>
+            <span>&bull;</span>
+            <span>CIN: {institution.cin}</span>
             <span>&bull;</span>
             <span className="text-emerald-400/80">Active Indian Non-Profit Foundation</span>
           </div>

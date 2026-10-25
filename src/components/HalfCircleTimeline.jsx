@@ -8,7 +8,7 @@ export default function HalfCircleTimeline() {
       {/* Background Ambient Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[#E57A00]/5 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl xl:max-w-7xl mx-auto relative z-10">
         
         {/* Section Heading: Verbatim from Spec & Profile */}
         <motion.div 

@@ -452,6 +452,9 @@ export interface DoodleCrewFooterProps {
 
   wordmark?: string
 
+  /** Sub-wordmark directly below main word with identical hand-drawn stamp animation. */
+  subWordmark?: string
+
   /** Brand name, top left. */
 
   brand?: string
@@ -1064,6 +1067,17 @@ type Metrics = { advances: number[]; cap: number }
 
 
 
+const REDKROSS_SUB_PALETTE = [
+  "#FFA439", // Bright Golden Amber
+  "#FF921F", // Radiant Amber
+  "#E57A00", // RedKross Amber
+  "#FF8200", // Vibrant Orange
+  "#FF6E18", // Fiery Orange
+  "#FF5522", // Reddish Orange
+  "#FFA439",
+  "#FF921F",
+]
+
 const REDKROSS_PALETTE = [
   "#FF2A2A", // R - Vivid Reddish
   "#FF3E2E", // E - Reddish Flame
@@ -1160,6 +1174,8 @@ const Link = ({ link, className }: { link: FooterLink; className?: string }) =>
 export default function DoodleCrewFooter({
 
   wordmark = "MISCHIEF",
+  subWordmark,
+
 
   brand = "mischief",
 
@@ -1287,6 +1303,17 @@ export default function DoodleCrewFooter({
 
   const layout = React.useMemo(() => layoutWord(metrics.advances, tracking, FONT_SIZE), [metrics, tracking])
 
+  const subWord = subWordmark ? subWordmark.toUpperCase() : ""
+  const subChars = React.useMemo(() => (subWord ? Array.from(subWord) : []), [subWord])
+  const SUB_FONT_SIZE = 50
+  const subMetrics = React.useMemo(() => (subWord ? estimate(subWord) : null), [subWord])
+  const subLayout = React.useMemo(() => {
+    if (!subMetrics || !subWord) return null
+    const adv = subMetrics.advances.map(a => a * (SUB_FONT_SIZE / FONT_SIZE))
+    return layoutWord(adv, 0.06, SUB_FONT_SIZE)
+  }, [subMetrics, subWord])
+  const subOffsetX = subLayout ? Math.max(0, (layout.width - subLayout.width) / 2) : 0
+
   const cap = metrics.cap
 
 
@@ -1349,6 +1376,10 @@ export default function DoodleCrewFooter({
 
     }
 
+    if (subLayout) {
+      r = Math.max(r, subOffsetX + subLayout.width)
+      b = Math.max(b, 135)
+    }
     const pad = 24
 
     return { x: l - pad, y: t - pad, w: r - l + pad * 2, h: b - t + pad * 2 }
@@ -2240,6 +2271,43 @@ export default function DoodleCrewFooter({
 
               ),
 
+            )}
+
+            {subChars && subLayout && subChars.map((c, j) =>
+              c === " " ? null : (
+                <g
+                  key={`sub-${j}`}
+                  className="dcf-letter"
+                  style={{
+                    "--d": (tl.letter(chars.length) + j * 45) + "ms",
+                    "--r": ((hash((j + 12) * 3.7) - 0.5) * 5).toFixed(2) + "deg",
+                  } as React.CSSProperties}
+                >
+                  <g className="dcf-glyph">
+                    <text
+                      x={subOffsetX + subLayout.x[j]}
+                      y={108}
+                      fontSize={SUB_FONT_SIZE}
+                      fontWeight={900}
+                      letterSpacing="0.06em"
+                      style={{
+                        fontFamily,
+                        fill: REDKROSS_SUB_PALETTE[j % REDKROSS_SUB_PALETTE.length],
+                      }}
+                      fill={REDKROSS_SUB_PALETTE[j % REDKROSS_SUB_PALETTE.length]}
+                      filter={"url(#" + uid + "-ink)"}
+                    >
+                      {c}
+                    </text>
+                  </g>
+                  <path
+                    className="dcf-dust"
+                    d={
+                      "M" + (subOffsetX + subLayout.x[j] - 4) + " 102 l-10 -4 M" + (subOffsetX + subLayout.x[j] + subLayout.w[j] + 4) + " 102 l10 -4"
+                    }
+                  />
+                </g>
+              )
             )}
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,19 +6,25 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutSection from './components/AboutSection';
 import TwoPillarsShowcase from './components/TwoPillarsShowcase';
+import BlueprintMentalModel from './components/BlueprintMentalModel';
 import ProjectsPortfolio from './components/ProjectsPortfolio';
-import CreativeBranchesShowcase from './components/CreativeBranchesShowcase';
 import HalfCircleTimeline from './components/HalfCircleTimeline';
+import TeamSection from './components/TeamSection';
 import CollegePartnershipSection from './components/CollegePartnershipSection';
 import OpportunitiesSection from './components/OpportunitiesSection';
 import GovernanceTrustSection from './components/GovernanceTrustSection';
+import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import DataInventoryModal from './components/DataInventoryModal';
 import { initGlobalSplitText } from './utils/initSplitText';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
+  const [inventoryModalOpen, setInventoryModalOpen] = useState(false);
+
   // Initialize Lenis smooth scroll engine synchronized with GSAP ScrollTrigger
   useEffect(() => {
     const lenis = new Lenis({
@@ -59,36 +65,51 @@ export default function App() {
       <LoadingScreen />
 
       {/* Navigation */}
-      <Navbar />
+      <Navbar onOpenInventory={() => setInventoryModalOpen(true)} />
 
       <main className="flex-1">
         {/* 1. HERO SECTION (GSAP ScrollTrigger Frame Scrubber + SplitType Royal Headline) */}
         <Hero />
 
-        {/* 2. TWO PILLARS (Equal weight: Cybersecurity & Technology + Psychology & Human Wellbeing) */}
+        {/* 2. ABOUT REDKROSS & 6 CORE VALUES (Mandated Order 2 in Developer Spec) */}
+        <AboutSection />
+
+        {/* 3. TWO PILLARS (Equal weight: Cybersecurity & Technology + Psychology & Human Wellbeing) */}
         <TwoPillarsShowcase />
 
-        {/* 3. VERIFIED PROJECTS PORTFOLIO (Strict status taxonomy) */}
+        {/* 4. FOUR-PART OPERATING BLUEPRINT & 10-STAGE LIFECYCLE (Complete Architecture Blueprint) */}
+        <BlueprintMentalModel />
+
+        {/* 5. VERIFIED PROJECTS PORTFOLIO (Strict status taxonomy) */}
         <ProjectsPortfolio />
 
-        {/* 4. CREATIVE BRANCHES, RADAR, NEURAL HUD & 3D CYBER RANGE ISOLATION TOPOLOGY (Hidden for now as requested) */}
-        {/* <CreativeBranchesShowcase /> */}
-
-        {/* 5. ORGANISATIONAL JOURNEY & STICKY NOTEBOOK TIMELINE */}
+        {/* 6. ORGANISATIONAL JOURNEY & STICKY NOTEBOOK TIMELINE */}
         <HalfCircleTimeline />
 
-        {/* 6. COLLEGE & UNIVERSITY PARTNERSHIPS (5 Stages & Functional Enquiry Form) */}
+        {/* 7. TEAM, LEADERSHIP & STATUTORY COMPLIANCE (Profile Spec Section 6 & 8) */}
+        <TeamSection />
+
+        {/* 8. COLLEGE & UNIVERSITY PARTNERSHIPS (5 3D Stages & Functional Enquiry Form) */}
         <CollegePartnershipSection />
 
-        {/* 7. VERIFIED OPPORTUNITIES DIRECTORY */}
+        {/* 9. VERIFIED OPPORTUNITIES DIRECTORY */}
         <OpportunitiesSection />
 
-        {/* 8. GOVERNANCE, ETHICS, DATA MINIMIZATION & RESPONSIBLE DISCLOSURE */}
-        <GovernanceTrustSection />
+        {/* 10. GOVERNANCE, ETHICS, DATA MINIMIZATION & RESPONSIBLE DISCLOSURE */}
+        <GovernanceTrustSection onOpenInventory={() => setInventoryModalOpen(true)} />
+
+        {/* 11. CONTACT & INSTITUTIONAL DIRECTORY HUB */}
+        <ContactSection />
       </main>
 
       {/* Institutional Legal Footer */}
-      <Footer />
+      <Footer onOpenInventory={() => setInventoryModalOpen(true)} />
+
+      {/* Audited Fact & Evidence Registry Modal */}
+      <DataInventoryModal 
+        isOpen={inventoryModalOpen} 
+        onClose={() => setInventoryModalOpen(false)} 
+      />
     </div>
   );
 }

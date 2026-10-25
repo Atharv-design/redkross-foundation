@@ -11,7 +11,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 40);
     };
 
-    const sectionIds = ['hero', 'pillars', 'projects', 'partners', 'opportunities', 'governance'];
+    const sectionIds = ['hero', 'about', 'pillars', 'blueprint', 'projects', 'past', 'team', 'partners', 'opportunities', 'governance', 'contact'];
     const handleScrollSpy = () => {
       const scrollY = window.scrollY;
       const navOffset = 200;
@@ -36,14 +36,18 @@ export default function Navbar() {
     };
   }, []);
 
-  // Clean, single-line professional nav titles
+  // Clean, professional nav titles mapped directly to core architecture
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "Two Pillars", href: "#pillars" },
+    { label: "About", href: "#about" },
+    { label: "Pillars", href: "#pillars" },
+    { label: "Blueprint", href: "#blueprint" },
     { label: "Projects", href: "#projects" },
-    { label: "College Tie-Ups", href: "#partners" },
+    { label: "Journey", href: "#past" },
+    { label: "Team", href: "#team" },
+    { label: "Partnerships", href: "#partners" },
     { label: "Opportunities", href: "#opportunities" },
-    { label: "Governance", href: "#governance" }
+    { label: "Governance", href: "#governance" },
+    { label: "Contact", href: "#contact" }
   ];
 
   const handleLinkClick = (e, href) => {
@@ -94,7 +98,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Single-Line Horizontal Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-5">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
@@ -130,10 +134,10 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile / Tablet Hamburger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-full bg-white/5 border border-white/10 text-gray-300 cursor-pointer"
+          className="xl:hidden p-2 rounded-full bg-white/5 border border-white/10 text-gray-300 cursor-pointer"
           aria-label="Toggle mobile menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5 text-[#E57A00]" /> : <Menu className="w-5 h-5 text-[#E57A00]" />}
@@ -143,7 +147,7 @@ export default function Navbar() {
 
       {/* Accessible Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 max-w-7xl mx-auto rounded-3xl bg-[#06080e]/95 backdrop-blur-2xl border border-white/10 p-5 shadow-2xl pointer-events-auto">
+        <div className="xl:hidden mt-3 max-w-7xl mx-auto rounded-3xl bg-[#06080e]/95 backdrop-blur-2xl border border-white/10 p-5 shadow-2xl pointer-events-auto">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a

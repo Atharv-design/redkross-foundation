@@ -31,7 +31,7 @@ export default function DataInventoryModal({ isOpen, onClose }) {
     },
     {
       claim: "Leadership Team",
-      fact: "Harsh Rajput (Director), Pallavi (CEO), Ojas Satardekar (Vice President), Piyush (President).",
+      fact: "Harsh Rajput (Director), Ojas Satardekar (CEO), Atharv .R. Gupta (Development Head), Upasna Solanki (Department Head).",
       sourceUrl: "https://redkross.org.in/governance",
       sourceSection: "Governance Roster // Leadership Team",
       status: "Verified Official",

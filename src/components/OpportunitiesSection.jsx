@@ -15,19 +15,12 @@ import { StickyCard_001 } from './ui/skiper16';
 
 export default function OpportunitiesSection() {
   const { opportunities } = REDKROSS_DATA;
-  const [domainFilter, setDomainFilter] = useState('All');
 
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
-  const domainOptions = ['All', 'Cybersecurity & Technology', 'Psychology & Human Wellbeing', 'Cross-disciplinary Research'];
-
-  const filteredOpportunities = domainFilter === 'All'
-    ? opportunities
-    : opportunities.filter(o => o.domain === domainFilter);
 
   const getStatusBadge = (status) => {
     switch (status) {
@@ -66,36 +59,13 @@ export default function OpportunitiesSection() {
           </p>
         </motion.div>
 
-        {/* Domain Filter Pills */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-center gap-2 mb-16"
-        >
-          {domainOptions.map((opt) => (
-            <button
-              key={opt}
-              onClick={() => setDomainFilter(opt)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 border cursor-pointer ${
-                domainFilter === opt
-                  ? 'bg-[#E57A00] text-black font-bold border-[#E57A00] shadow-[0_0_15px_rgba(229,122,0,0.4)]'
-                  : 'bg-[#0d1017] text-gray-400 border-white/10 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              {opt}
-            </button>
-          ))}
-        </motion.div>
-
         {/* Skiper16 Interactive Sticky Card Stack */}
         <div 
           ref={containerRef} 
           className="relative w-full max-w-4xl mx-auto pb-32"
         >
-          {filteredOpportunities.map((opp, i) => {
-            const total = filteredOpportunities.length;
+          {opportunities.map((opp, i) => {
+            const total = opportunities.length;
             const targetScale = Math.max(0.84, 1 - (total - i - 1) * 0.04);
             const rangeStart = total > 1 ? i * (0.75 / (total - 1)) : 0;
 
