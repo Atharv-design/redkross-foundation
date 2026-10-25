@@ -19,27 +19,33 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* SECTION HEADER: Verbatim from Profile Spec Section 6 */}
-        <motion.div 
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-4xl mx-auto mb-14"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-300 mb-4 backdrop-blur-md">
+        <div className="text-center max-w-4xl mx-auto mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-300 mb-4 backdrop-blur-md"
+          >
             <Users className="w-3.5 h-3.5 text-[#E57A00]" />
             <span>LEADERSHIP, GOVERNANCE & ROLES</span>
             <span className="text-gray-500 hidden sm:inline">&bull; VERIFIED PROFILES</span>
-          </div>
+          </motion.div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 font-royal" style={{ perspective: '1000px' }}>
             Leadership & <span className="gradient-text">Governance</span>
           </h2>
 
-          <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto font-sans">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto font-sans"
+          >
             Confirmed leadership and governance roles for RedKross Research Foundation, steering strategic direction, institutional alignment, research standards, and engineering architecture.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* INTEGRATED SHADCN MEMBERS-03 COMPONENT */}
         <motion.div

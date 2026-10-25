@@ -40,24 +40,30 @@ export default function OpportunitiesSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Heading: Verbatim from Spec Page 4 & 6 */}
-        <motion.div 
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-4xl mx-auto mb-14"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400 mb-4">
+        <div className="text-center max-w-4xl mx-auto mb-14">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400 mb-4"
+          >
             <Layers className="w-3.5 h-3.5 text-[#E57A00]" />
             <span>Verified Opportunities Directory &bull; Interactive Card Stack</span>
-          </div>
+          </motion.div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 font-royal" style={{ perspective: '1000px' }}>
             Opportunities. <span className="gradient-text font-royal">Find Your Place in the Work.</span>
           </h2>
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="text-gray-300 text-sm sm:text-base leading-relaxed"
+          >
             RedKross Research Foundation brings together people interested in research, technology, psychology and community-focused work. Explore opportunities across cybersecurity, AI, digital forensics, psychology and interdisciplinary research.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Skiper16 Interactive Sticky Card Stack */}
         <div 

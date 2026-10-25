@@ -58,18 +58,19 @@ export default function ProjectsPortfolio() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#E57A00]/[0.05] rounded-full blur-[180px] pointer-events-none" />
 
       {/* SECTION HEADING WITH ROYAL CINZEL & GSAP SPLITTYPE */}
-      <motion.div 
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center max-w-4xl mx-auto mb-8 px-4 sm:px-6 relative z-10"
-      >
-        <div ref={telemetryRef} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-300 mb-4 backdrop-blur-md">
+      <div className="text-center max-w-4xl mx-auto mb-8 px-4 sm:px-6 relative z-10">
+        <motion.div 
+          ref={telemetryRef} 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-300 mb-4 backdrop-blur-md"
+        >
           <span className="w-2 h-2 rounded-full bg-[#E57A00] animate-ping" />
           <span>VERIFIED PORTFOLIO // ZERO FABRICATIONS</span>
           <span className="text-gray-500 hidden sm:inline">&bull; 5 REGISTERED INITIATIVES</span>
-        </div>
+        </motion.div>
 
         <h2 
           ref={headingRef}
@@ -79,11 +80,17 @@ export default function ProjectsPortfolio() {
           Projects. <span className="gradient-text">Engineering with Evidence.</span>
         </h2>
 
-        <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-sans">
+        <motion.p 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-sans"
+        >
           Our public project portfolio includes tools and prototypes across AI, cybersecurity and related technologies. 
           Each project clearly communicates its purpose, current maturity, technical approach and known limitations.
-        </p>
-      </motion.div>
+        </motion.p>
+      </div>
 
       {/* ========================================================================= */}
       {/* RAINBOW ARCH CAROUSEL (EXACT VIDEO MATCH - CARDS FAN ALONG SEMICIRCLE ARC) */}

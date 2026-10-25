@@ -100,27 +100,33 @@ export default function BlueprintMentalModel() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* SECTION HEADER: From Architecture Blueprint Page 1-3 */}
-        <motion.div 
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-4xl mx-auto mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-300 mb-4 backdrop-blur-md">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-300 mb-4 backdrop-blur-md"
+          >
             <span className="w-2 h-2 rounded-full bg-[#0FB7B7] animate-ping" />
             <span>OPERATING ARCHITECTURE // COMPLETE BLUEPRINT</span>
             <span className="text-gray-500 hidden sm:inline">&bull; 4-PART MENTAL MODEL</span>
-          </div>
+          </motion.div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 font-royal" style={{ perspective: '1000px' }}>
             The 4-Part Operating <span className="gradient-text font-royal">Architecture</span>
           </h2>
           
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-sans"
+          >
             How RedKross connects governance, education, isolated lab experimentation, rigorous scientific inquiry and practical defensive tooling into one unified, reproducible ecosystem.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* ───────────────────────────────────────────────────────────── */}
         {/* 4-PART MENTAL MODEL: TOP-NOTCH LUXURY DOUBLE-BORDER CARDS     */}

@@ -50,13 +50,32 @@ export default function App() {
     };
   }, []);
 
-  // Universal SplitText initialization across all sections on the website
+  // Universal SplitText initialization with font readiness and ScrollTrigger synchronization
   useEffect(() => {
-    const timer = setTimeout(() => {
-      initGlobalSplitText();
-    }, 250);
+    let cleanup = null;
 
-    return () => clearTimeout(timer);
+    const setupSplit = () => {
+      cleanup = initGlobalSplitText();
+      ScrollTrigger.refresh();
+    };
+
+    if (typeof document !== 'undefined' && document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        setupSplit();
+      });
+    } else {
+      setupSplit();
+    }
+
+    // Refresh ScrollTrigger positions once LoadingScreen fades out and layout settles
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 1900);
+
+    return () => {
+      clearTimeout(refreshTimer);
+      if (cleanup) cleanup();
+    };
   }, []);
 
   return (

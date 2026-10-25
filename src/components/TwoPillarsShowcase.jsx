@@ -31,14 +31,14 @@ export default function TwoPillarsShowcase() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* SECTION HEADER WITH TELEMETRY & ROYAL TYPOGRAPHY */}
-        <motion.div 
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-4xl mx-auto mb-14 sm:mb-18"
-        >
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md mb-5">
+        <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-18">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 sm:gap-3 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md mb-5"
+          >
             <span className="w-2 h-2 rounded-full bg-[#E57A00] animate-ping" />
             <span className="text-[11px] font-mono tracking-wider text-gray-300 uppercase">
               FOUNDATION ARCHITECTURE // DUAL-PILLAR DOSSIER
@@ -46,7 +46,7 @@ export default function TwoPillarsShowcase() {
             <span className="text-[10px] font-mono text-gray-500 hidden sm:inline">
               [CIN: U85499HR2026NPL144741]
             </span>
-          </div>
+          </motion.div>
 
           <h2 
             ref={headingRef}
@@ -56,11 +56,17 @@ export default function TwoPillarsShowcase() {
             Two Pillars. <span className="gradient-text">One Shared Mission.</span>
           </h2>
 
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-sans">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-sans"
+          >
             RedKross Research Foundation brings together two areas of work that address different but interconnected challenges: 
             the <span className="text-[#FFA439] font-medium">security of digital systems</span> and the <span className="text-[#1ED8D8] font-medium">wellbeing of people</span>.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* ========================================================================= */}
         {/* 2-COLUMN GRID: PILLAR 1 (LEFT) & PILLAR 2 (RIGHT)                         */}
