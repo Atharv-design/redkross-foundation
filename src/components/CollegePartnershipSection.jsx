@@ -18,7 +18,7 @@ import CinematicPartnershipCards from './motion/CinematicPartnershipCards';
 export default function CollegePartnershipSection() {
   const { collegePartnership, institution } = REDKROSS_DATA;
 
-  // Real institutional enquiry form state
+  // Real institutional enquiry form state with anti-bot honeypot and rate-limiting
   const [formData, setFormData] = useState({
     collegeName: '',
     department: '',
@@ -31,11 +31,13 @@ export default function CollegePartnershipSection() {
     preferredDelivery: 'Hybrid',
     expectedTimeframe: '',
     additionalRequirements: '',
-    consent: false
+    consent: false,
+    website_hp: '' // Anti-automation honeypot trap
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
   const interestOptions = [
     "Cybersecurity Foundation Training",
@@ -59,6 +61,25 @@ export default function CollegePartnershipSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 1. Anti-Automation Honeypot Trap check
+    if (formData.website_hp && formData.website_hp.trim().length > 0) {
+      // Silently drop bot submissions without leaking detection
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setFormSubmitted(true);
+      }, 500);
+      return;
+    }
+
+    // 2. Client-Side Cooldown / Rate Limiting (15s between submissions)
+    const now = Date.now();
+    if (now - lastSubmitTime < 15000) {
+      return;
+    }
+    setLastSubmitTime(now);
+
     setIsSubmitting(true);
     // Real validation & simulated dispatch to verified institution endpoint
     setTimeout(() => {
@@ -172,7 +193,18 @@ export default function CollegePartnershipSection() {
 
               {/* Right Column: Clean Horizontal-Ruled Input Rows */}
               <form onSubmit={handleSubmit} className="lg:col-span-7 space-y-0">
-                
+                {/* Anti-Automation Honeypot: Invisible to human users, traps spam bots */}
+                <div className="sr-only" aria-hidden="true" style={{ display: 'none' }}>
+                  <input
+                    type="text"
+                    name="website_hp"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website_hp}
+                    onChange={(e) => setFormData({ ...formData, website_hp: e.target.value })}
+                  />
+                </div>
+
                 {/* 1. NAME */}
                 <div className="border-b border-white/10 focus-within:border-[#E57A00] transition-colors py-4 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
                   <span className="w-28 text-[11px] font-mono uppercase tracking-wider text-gray-400 font-semibold shrink-0">
@@ -181,9 +213,10 @@ export default function CollegePartnershipSection() {
                   <input
                     type="text"
                     required
+                    maxLength={100}
                     placeholder="Dr. H. Sharma, HOD (Full name & role)"
                     value={formData.contactPerson}
-                    onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value.slice(0, 100) })}
                     className="flex-1 bg-transparent text-white text-sm font-sans placeholder:text-gray-400 outline-none border-none p-0 focus:ring-0"
                   />
                 </div>
@@ -196,9 +229,10 @@ export default function CollegePartnershipSection() {
                   <input
                     type="email"
                     required
+                    maxLength={120}
                     placeholder="official@institution.edu.in"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value.slice(0, 120) })}
                     className="flex-1 bg-transparent text-white text-sm font-sans placeholder:text-gray-400 outline-none border-none p-0 focus:ring-0"
                   />
                 </div>
@@ -211,9 +245,10 @@ export default function CollegePartnershipSection() {
                   <input
                     type="text"
                     required
+                    maxLength={150}
                     placeholder="Panipat Institute of Engineering (College / University)"
                     value={formData.collegeName}
-                    onChange={(e) => setFormData({ ...formData, collegeName: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, collegeName: e.target.value.slice(0, 150) })}
                     className="flex-1 bg-transparent text-white text-sm font-sans placeholder:text-gray-400 outline-none border-none p-0 focus:ring-0"
                   />
                 </div>
@@ -226,9 +261,10 @@ export default function CollegePartnershipSection() {
                   <input
                     type="text"
                     required
+                    maxLength={100}
                     placeholder="Computer Science, Cybersecurity, or Engineering"
                     value={formData.department}
-                    onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, department: e.target.value.slice(0, 100) })}
                     className="flex-1 bg-transparent text-white text-sm font-sans placeholder:text-gray-400 outline-none border-none p-0 focus:ring-0"
                   />
                 </div>
@@ -241,9 +277,10 @@ export default function CollegePartnershipSection() {
                   <input
                     type="text"
                     required
+                    maxLength={60}
                     placeholder="Estimated student count (e.g. 60 - 120 students)"
                     value={formData.approxStudents}
-                    onChange={(e) => setFormData({ ...formData, approxStudents: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, approxStudents: e.target.value.slice(0, 60) })}
                     className="flex-1 bg-transparent text-white text-sm font-sans placeholder:text-gray-400 outline-none border-none p-0 focus:ring-0"
                   />
                 </div>
@@ -303,9 +340,10 @@ export default function CollegePartnershipSection() {
                   </span>
                   <textarea
                     rows={2}
+                    maxLength={1000}
                     placeholder="Targeted semester, prerequisites, or specific lab requirements..."
                     value={formData.additionalRequirements}
-                    onChange={(e) => setFormData({ ...formData, additionalRequirements: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, additionalRequirements: e.target.value.slice(0, 1000) })}
                     className="flex-1 bg-transparent text-white text-sm font-sans placeholder:text-gray-400 outline-none border-none p-0 resize-none focus:ring-0 leading-relaxed"
                   />
                 </div>

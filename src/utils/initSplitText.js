@@ -84,8 +84,8 @@ export function initGlobalSplitText() {
 
       element.style.perspective = '1000px';
 
-      // Store original innerHTML for clean revert if needed
-      element.dataset.originalHtml = element.innerHTML;
+      // Save cloned original child nodes safely without innerHTML string sinks
+      element._originalChildNodes = Array.from(element.childNodes).map((node) => node.cloneNode(true));
 
       const fragment = document.createDocumentFragment();
       Array.from(element.childNodes).forEach((child) => {
@@ -93,8 +93,8 @@ export function initGlobalSplitText() {
         if (res) fragment.appendChild(res);
       });
 
-      element.innerHTML = '';
-      element.appendChild(fragment);
+      // Atomic, safe DOM replacement preventing DOM XSS sinks
+      element.replaceChildren(fragment);
 
       const chars = element.querySelectorAll('.split-char');
       if (chars.length === 0) return;
@@ -153,10 +153,10 @@ export function initGlobalSplitText() {
   // Return cleanup function
   return () => {
     targets.forEach((el) => {
-      if (el.dataset.originalHtml) {
-        el.innerHTML = el.dataset.originalHtml;
+      if (el._originalChildNodes) {
+        el.replaceChildren(...el._originalChildNodes);
+        delete el._originalChildNodes;
         delete el.dataset.splitInitialized;
-        delete el.dataset.originalHtml;
       }
     });
   };

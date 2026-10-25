@@ -15,48 +15,15 @@ export default function Hero() {
 
   const totalFrames = 160;
 
-  // 1. Preload 160 frames into browser memory
-  useEffect(() => {
-    let loadedCount = 0;
-    const images = [];
-
-    for (let i = 1; i <= totalFrames; i++) {
-      const img = new Image();
-      const paddedIndex = String(i).padStart(3, '0');
-      img.src = `/frames/ezgif-frame-${paddedIndex}.jpg`;
-
-      img.onload = () => {
-        loadedCount++;
-        setLoadProgress(Math.floor((loadedCount / totalFrames) * 100));
-        if (loadedCount === totalFrames) {
-          imagesRef.current = images;
-          setImagesLoaded(true);
-        }
-      };
-
-      img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === totalFrames) {
-          imagesRef.current = images;
-          setImagesLoaded(true);
-        }
-      };
-
-      images.push(img);
-    }
-  }, []);
-
-  // 2. High performance canvas drawer with cover aspect ratio
-  const renderFrame = (index) => {
+  // Helper to draw an image onto canvas maintaining cover aspect ratio
+  const drawImageToCanvas = (img) => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !img) return;
     const ctx = canvas.getContext('2d');
-    const img = imagesRef.current[index];
-    if (!img || !img.complete) return;
+    if (!ctx) return;
 
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
-
     const imgRatio = img.width / img.height;
     const canvasRatio = canvasWidth / canvasHeight;
 
@@ -78,6 +45,106 @@ export default function Hero() {
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
   };
 
+  // 1. Two-Tier Frame Preloader: Immediate Priority for Instant Render + Staggered Idle Chunks
+  useEffect(() => {
+    let isCancelled = false;
+    let loadedCount = 0;
+    const images = new Array(totalFrames);
+
+    const loadImage = (index) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        const paddedIndex = String(index + 1).padStart(3, '0');
+        img.src = `/frames/ezgif-frame-${paddedIndex}.jpg`;
+
+        const markDone = () => {
+          if (!isCancelled) {
+            images[index] = img;
+            loadedCount++;
+            setLoadProgress(Math.floor((loadedCount / totalFrames) * 100));
+          }
+          resolve();
+        };
+
+        img.onload = markDone;
+        img.onerror = markDone;
+      });
+    };
+
+    // Priority Tier: Load first 16 frames immediately for instant above-the-fold canvas
+    const priorityCount = 16;
+    const priorityPromises = [];
+    for (let i = 0; i < priorityCount; i++) {
+      priorityPromises.push(loadImage(i));
+    }
+
+    Promise.all(priorityPromises).then(() => {
+      if (isCancelled) return;
+      imagesRef.current = images;
+      setImagesLoaded(true);
+
+      // Background Tier: Stream remaining frames in non-blocking batches
+      let currentBatchStart = priorityCount;
+      const batchSize = 16;
+
+      const loadNextBatch = () => {
+        if (isCancelled || currentBatchStart >= totalFrames) return;
+        const batchPromises = [];
+        const end = Math.min(currentBatchStart + batchSize, totalFrames);
+        for (let i = currentBatchStart; i < end; i++) {
+          batchPromises.push(loadImage(i));
+        }
+        currentBatchStart = end;
+
+        Promise.all(batchPromises).then(() => {
+          if (!isCancelled && currentBatchStart < totalFrames) {
+            if ('requestIdleCallback' in window) {
+              window.requestIdleCallback(() => loadNextBatch(), { timeout: 300 });
+            } else {
+              setTimeout(loadNextBatch, 60);
+            }
+          }
+        });
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => loadNextBatch(), { timeout: 300 });
+      } else {
+        setTimeout(loadNextBatch, 60);
+      }
+    });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  // 2. High performance canvas drawer with graceful fallback to nearest ready frame
+  const renderFrame = (index) => {
+    if (!imagesRef.current) return;
+    const clampedIndex = Math.max(0, Math.min(totalFrames - 1, index));
+    const img = imagesRef.current[clampedIndex];
+
+    if (img && img.complete && img.naturalWidth > 0) {
+      drawImageToCanvas(img);
+      return;
+    }
+
+    // Nearest loaded frame fallback to guarantee 0 canvas flicker during fast scrubs
+    for (let offset = 1; offset < totalFrames; offset++) {
+      const prev = imagesRef.current[clampedIndex - offset];
+      if (prev && prev.complete && prev.naturalWidth > 0) {
+        drawImageToCanvas(prev);
+        return;
+      }
+      const next = imagesRef.current[clampedIndex + offset];
+      if (next && next.complete && next.naturalWidth > 0) {
+        drawImageToCanvas(next);
+        return;
+      }
+    }
+  };
+
   // 3. Resize sync
   useEffect(() => {
     const handleResize = () => {
@@ -93,7 +160,7 @@ export default function Hero() {
     return () => window.removeEventListener('resize', handleResize);
   }, [imagesLoaded]);
 
-  // 4. GSAP ScrollTrigger Frame Scrubber
+  // 4. GSAP ScrollTrigger Frame Scrubber with debounced tween cleanup
   useEffect(() => {
     if (!imagesLoaded || !containerRef.current || !canvasRef.current) return;
 
@@ -107,9 +174,10 @@ export default function Hero() {
       scrub: 0.6,
       onUpdate: (self) => {
         const targetFrame = Math.round(self.progress * (totalFrames - 1));
+        gsap.killTweensOf(frameObj);
         gsap.to(frameObj, {
           frame: targetFrame,
-          duration: 0.1,
+          duration: 0.08,
           ease: 'none',
           onUpdate: () => {
             renderFrame(Math.round(frameObj.frame));
@@ -121,6 +189,7 @@ export default function Hero() {
     renderFrame(0);
 
     return () => {
+      gsap.killTweensOf(frameObj);
       trigger.kill();
     };
   }, [imagesLoaded]);
