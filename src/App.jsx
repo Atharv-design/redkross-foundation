@@ -8,8 +8,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import TwoPillarsShowcase from './components/TwoPillarsShowcase';
-import BlueprintMentalModel from './components/BlueprintMentalModel';
-import ProjectsPortfolio from './components/ProjectsPortfolio';
+import SelectedResearchSection from './components/SelectedResearchSection';
 import HalfCircleTimeline from './components/HalfCircleTimeline';
 import TeamSection from './components/TeamSection';
 import CollegePartnershipSection from './components/CollegePartnershipSection';
@@ -96,11 +95,8 @@ export default function App() {
         {/* 3. TWO PILLARS (Equal weight: Cybersecurity & Technology + Psychology & Human Wellbeing) */}
         <TwoPillarsShowcase />
 
-        {/* 4. FOUR-PART OPERATING BLUEPRINT & 10-STAGE LIFECYCLE (Complete Architecture Blueprint) */}
-        <BlueprintMentalModel />
-
-        {/* 5. VERIFIED PROJECTS PORTFOLIO (Strict status taxonomy) */}
-        <ProjectsPortfolio />
+        {/* 4. SELECTED RESEARCH & INNOVATION (4-Part Mental Model, 10-Stage Lifecycle & Cyber Deep-Dive Link) */}
+        <SelectedResearchSection />
 
         {/* 6. ORGANISATIONAL JOURNEY & STICKY NOTEBOOK TIMELINE */}
         <HalfCircleTimeline />

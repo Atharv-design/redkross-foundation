@@ -11,7 +11,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 40);
     };
 
-    const sectionIds = ['hero', 'about', 'pillars', 'blueprint', 'projects', 'past', 'team', 'partners', 'opportunities', 'governance', 'contact'];
+    const sectionIds = ['hero', 'about', 'pillars', 'research', 'past', 'team', 'partners', 'opportunities', 'governance', 'contact'];
     const handleScrollSpy = () => {
       const scrollY = window.scrollY;
       const navOffset = 200;
@@ -40,9 +40,8 @@ export default function Navbar() {
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Pillars", href: "#pillars" },
-    { label: "Blueprint", href: "#blueprint" },
-    { label: "Projects", href: "#projects" },
-    { label: "Journey", href: "#past" },
+    { label: "Research & Innovation", href: "#research" },
+    { label: "Our Journey", href: "#past" },
     { label: "Team", href: "#team" },
     { label: "Partnerships", href: "#partners" },
     { label: "Opportunities", href: "#opportunities" },
