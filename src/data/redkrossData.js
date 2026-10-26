@@ -6,6 +6,8 @@
 // 4. RedKross Organisation Profile
 // 5. Atharv Gupta Complete Tech Stack
 
+import { getEcosystemUrl } from '../utils/ecosystemLinks';
+
 export const REDKROSS_DATA = {
   // 1. Legal, Institutional & Contact Profile
   institution: {
@@ -24,6 +26,11 @@ export const REDKROSS_DATA = {
       phone: "+91 73032 63719"
     },
     domains: {
+      get main() { return getEcosystemUrl('main'); },
+      get cyber() { return getEcosystemUrl('cyber'); },
+      get psychology() { return getEcosystemUrl('psychology'); }
+    },
+    canonicalDomains: {
       main: "https://redkross.org.in",
       cyber: "https://cyber.redkross.org.in",
       psychology: "https://psychology.redkross.org.in"
@@ -102,7 +109,8 @@ export const REDKROSS_DATA = {
       id: "cybersecurity",
       title: "Cybersecurity & Technology",
       shortTitle: "Cybersecurity",
-      targetUrl: "https://cyber.redkross.org.in",
+      get targetUrl() { return getEcosystemUrl('cyber'); },
+      canonicalTargetUrl: "https://cyber.redkross.org.in",
       internalRoute: "/pillars/cybersecurity",
       accent: "#E57A00",
       accentRgb: "229, 122, 0",
@@ -139,7 +147,8 @@ export const REDKROSS_DATA = {
       id: "psychology",
       title: "Psychology & Human Wellbeing",
       shortTitle: "Applied Psychology",
-      targetUrl: "https://psychology.redkross.org.in",
+      get targetUrl() { return getEcosystemUrl('psychology'); },
+      canonicalTargetUrl: "https://psychology.redkross.org.in",
       internalRoute: "/pillars/psychology",
       accent: "#0FB7B7",
       accentRgb: "15, 183, 183",

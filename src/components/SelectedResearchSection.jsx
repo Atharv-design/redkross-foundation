@@ -18,6 +18,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import Helix10StageLifecycle from './ui/helix-10stage-lifecycle';
+import { getEcosystemUrl } from '../utils/ecosystemLinks';
 
 export default function SelectedResearchSection() {
   const { institution, projects } = REDKROSS_DATA;
@@ -275,7 +276,7 @@ export default function SelectedResearchSection() {
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
                   <span>Domain: {proj.domain || "Cybersecurity"}</span>
                   <a 
-                    href="https://cyber.redkross.org.in/projects"
+                    href={getEcosystemUrl('cyber', '/projects')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-[#E57A00] hover:underline cursor-pointer"
@@ -307,7 +308,7 @@ export default function SelectedResearchSection() {
               </div>
 
               <a
-                href="https://cyber.redkross.org.in"
+                href={getEcosystemUrl('cyber')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#00F0FF] text-black font-royal font-bold text-xs uppercase tracking-wider hover:bg-[#38bdf8] transition-all hover:scale-105 shadow-[0_0_25px_rgba(0,240,255,0.4)] whitespace-nowrap cursor-pointer shrink-0"
