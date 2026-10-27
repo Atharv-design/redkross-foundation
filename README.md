@@ -7,7 +7,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-Section%208%20Non--Profit-0284C7?style=for-the-badge)](LICENSE)
 
-> **Official primary digital ecosystem of RedKross Research Foundation** — an interdisciplinary Section 8 non-profit research institution bridging the vital frontiers of **Applied Cybersecurity** and **Evidence-Based Psychology**.
+> **Official primary digital ecosystem of RedKross Research Foundation** — an interdisciplinary Section 8 non-profit research institution bridging the vital frontiers of **Applied Computing & Systems** and **Evidence-Based Psychology**.
 
 ---
 
@@ -19,19 +19,19 @@ The RedKross Foundation operates on a dual-pillar institutional framework design
                             ┌────────────────────────────────────────┐
                             │      REDKROSS RESEARCH FOUNDATION       │
                             │         https://redkross.org.in         │
-                            │   (Governance, Trust, Core Leadership)  │
+                            │      (Governance, Core Leadership)      │
                             └───────────────────┬────────────────────┘
                                                 │
                        ┌────────────────────────┴────────────────────────┐
                        ▼                                                 ▼
         ┌─────────────────────────────┐                   ┌─────────────────────────────┐
-        │   CYBERSECURITY DIVISION    │                   │     PSYCHOLOGY DIVISION     │
+        │     CYBER DIVISION          │                   │     PSYCHOLOGY DIVISION     │
         │ https://cyber.redkross.org.in│                   │https://psychology.redkross.org.in│
         ├─────────────────────────────┤                   ├─────────────────────────────┤
         │ • AI & Threat Modeling      │                   │ • Grassroots Psychoeducation│
-        │ • Defensive Engineering     │                   │ • Stepped-Care Counselling  │
-        │ • Digital Forensics (DFIR)  │                   │ • Trauma & Youth Mental Care│
-        │ • Critical Infra & Cloud    │                   │ • Tele-MANAS / MHCA 2017    │
+        │ • Applied Systems Research  │                   │ • Stepped-Care Counselling  │
+        │ • Digital Forensics         │                   │ • Youth Mental Wellness     │
+        │ • Cloud & IoT Topologies    │                   │ • Community Support Circles │
         └─────────────────────────────┘                   └─────────────────────────────┘
 ```
 
@@ -41,11 +41,10 @@ The RedKross Foundation operates on a dual-pillar institutional framework design
 
 - **Interactive 3D WebGL Visualization:** Built with `@react-three/fiber` and `@react-three/drei` with real-time post-processing bloom, chromatic aberration, and particle physics.
 - **Cinema-Grade Kinetic Motion:** Ultra-smooth inertial page momentum powered by **Lenis**, synchronized with **GSAP ScrollTrigger** and **Framer Motion**.
-- **Dynamic Two-Pillars Showcase:** Interactive split-screen portal detailing the operational scopes of the **Cybersecurity Wing** and **Psychology Wing** with instant sub-domain routing.
+- **Dynamic Two-Pillars Showcase:** Interactive split-screen portal detailing the operational scopes of the **Cyber Division** and **Psychology Division** with instant sub-domain routing.
 - **Half-Circle Trajectory Timeline:** Interactive chronological roadmap highlighting institutional milestones, legal charter registrations, and research publications.
 - **Institutional Partnerships Hub:** Structured framework for university MOUs, academic faculty collaborations, and campus outreach.
-- **Data Governance & Privacy Disclosure Modal:** Granular data minimization protocols complying with the Digital Personal Data Protection (DPDP) Act.
-- **Seamless Glassmorphic Aesthetics:** Deep frosted acrylics, radial ambient backdrops, subtle gold/crimson specular highlights, and zero harsh section boundaries.
+- **Seamless Glassmorphic Aesthetics:** Deep frosted acrylics, radial ambient backdrops, subtle gold specular highlights, and seamless section transitions.
 
 ---
 
@@ -67,10 +66,10 @@ The RedKross Foundation operates on a dual-pillar institutional framework design
 
 ```text
 RedKross WebSite/
-├── public/                     # Static assets, logos, and favicons
+├── public/                     # Static assets, logos, and branding
 ├── src/
 │   ├── components/             # Reusable modular UI components
-│   │   ├── LoadingScreen.jsx   # High-tech initialization sequence
+│   │   ├── LoadingScreen.jsx   # Interactive initialization sequence
 │   │   ├── Navbar.jsx          # Glassmorphic adaptive navigation
 │   │   ├── Hero.jsx            # 3D interactive Three.js hero showcase
 │   │   ├── AboutSection.jsx    # Section 8 charter and mission statement
@@ -80,9 +79,8 @@ RedKross WebSite/
 │   │   ├── TeamSection.jsx     # Leadership and research fellows
 │   │   ├── CollegePartnershipSection.jsx # Academic MOU protocols
 │   │   ├── OpportunitiesSection.jsx      # Fellowships & student internships
-│   │   ├── GovernanceTrustSection.jsx    # Legal & DPDP disclosures
+│   │   ├── GovernanceTrustSection.jsx    # Institutional governance
 │   │   ├── ContactSection.jsx  # Multi-channel institutional enquiry desk
-│   │   ├── DataInventoryModal.jsx # Granular data policy modal
 │   │   └── Footer.jsx          # Seamless blended glassmorphic footer
 │   ├── data/                   # Structured research datasets and bios
 │   ├── lib/                    # Shared utility functions and math helpers
@@ -136,17 +134,16 @@ npm run preview
 | Platform | Production URL | Focus Area |
 | :--- | :--- | :--- |
 | **RedKross Foundation (Main)** | [redkross.org.in](https://redkross.org.in) | Umbrella governance, institutional partnerships, legal charter |
-| **Cybersecurity Wing** | [cyber.redkross.org.in](https://cyber.redkross.org.in) | Threat modeling, defensive engineering, air-gap labs |
-| **Psychology Wing** | [psychology.redkross.org.in](https://psychology.redkross.org.in) | Grassroots mental health, stepped-care, bilingual counseling |
+| **Cyber Division** | [cyber.redkross.org.in](https://cyber.redkross.org.in) | Applied systems research, academic labs, technical training |
+| **Psychology Division** | [psychology.redkross.org.in](https://psychology.redkross.org.in) | Grassroots mental health, stepped-care, bilingual counseling |
 
 ---
 
-## 📜 Governance, Ethics & Compliance
+## 📜 Institutional Charter
 
-RedKross Research Foundation operates under strict institutional principles:
+RedKross Research Foundation operates under non-commercial non-profit principles:
 - **Non-Commercial Mandate:** All research, public whitepapers, and grassroots community drives are non-profit initiatives.
-- **Data Protection:** Full adherence to the Indian **Digital Personal Data Protection Act (DPDPA 2023)**. No personal identifiable information is harvested or sold.
-- **Open Science:** Where security boundaries permit, research frameworks, datasets, and educational toolkits are published for open academic review.
+- **Open Science:** Where appropriate, educational materials, research frameworks, and academic toolkits are published for open review.
 
 ---
 
