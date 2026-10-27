@@ -1,156 +1,62 @@
-# 🌐 RedKross Research Foundation — Official Umbrella Portal
+# 🌐 RedKross Research Foundation — Official Umbrella Ecosystem
 
-[![Platform](https://img.shields.io/badge/Platform-RedKross%20Foundation-E11D48?style=for-the-badge&logo=shield)](https://redkross.org.in)
-[![Vite](https://img.shields.io/badge/Vite-6.0+-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![React](https://img.shields.io/badge/React-18.3+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![Three.js](https://img.shields.io/badge/Three.js-WebGL%203D-black?style=for-the-badge&logo=three.js)](https://threejs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-Section%208%20Non--Profit-0284C7?style=for-the-badge)](LICENSE)
+> **The central digital home and umbrella portal of RedKross Research Foundation** — an interdisciplinary non-profit research institution dedicated to bridging the vital frontiers of **Applied Computing & Innovation** and **Human Well-Being & Psychology**.
 
-> **Official primary digital ecosystem of RedKross Research Foundation** — an interdisciplinary Section 8 non-profit research institution bridging the vital frontiers of **Applied Computing & Systems** and **Evidence-Based Psychology**.
+- **Official Foundation Portal:** [https://redkross.org.in](https://redkross.org.in)
+- **Cyber Wing Portal:** [https://cyber.redkross.org.in](https://cyber.redkross.org.in)
+- **Psychology Wing Portal:** [https://psychology.redkross.org.in](https://psychology.redkross.org.in)
 
 ---
 
-## 🏛️ Ecosystem Overview & Architecture
+## 🏛️ What is this Website?
 
-The RedKross Foundation operates on a dual-pillar institutional framework designed to solve complex socio-technical challenges:
+This website serves as the primary gateway and institutional showcase of the **RedKross Research Foundation**. 
 
-```
-                            ┌────────────────────────────────────────┐
-                            │      REDKROSS RESEARCH FOUNDATION       │
-                            │         https://redkross.org.in         │
-                            │      (Governance, Core Leadership)      │
-                            └───────────────────┬────────────────────┘
-                                                │
-                       ┌────────────────────────┴────────────────────────┐
-                       ▼                                                 ▼
-        ┌─────────────────────────────┐                   ┌─────────────────────────────┐
-        │     CYBER DIVISION          │                   │     PSYCHOLOGY DIVISION     │
-        │ https://cyber.redkross.org.in│                   │https://psychology.redkross.org.in│
-        ├─────────────────────────────┤                   ├─────────────────────────────┤
-        │ • AI & Threat Modeling      │                   │ • Grassroots Psychoeducation│
-        │ • Applied Systems Research  │                   │ • Stepped-Care Counselling  │
-        │ • Digital Forensics         │                   │ • Youth Mental Wellness     │
-        │ • Cloud & IoT Topologies    │                   │ • Community Support Circles │
-        └─────────────────────────────┘                   └─────────────────────────────┘
-```
+Rather than treating technology and human wellness as isolated fields, the Foundation operates on a dual-wing model where computing innovation and mental health support move forward together. This platform introduces visitors to that overarching vision, showcases our interdisciplinary work, and directs visitors to our two specialized divisions.
 
 ---
 
-## ✨ Flagship Engineering & Creative Highlights
+## 🧭 What Can You Explore on this Website?
 
-- **Interactive 3D WebGL Visualization:** Built with `@react-three/fiber` and `@react-three/drei` with real-time post-processing bloom, chromatic aberration, and particle physics.
-- **Cinema-Grade Kinetic Motion:** Ultra-smooth inertial page momentum powered by **Lenis**, synchronized with **GSAP ScrollTrigger** and **Framer Motion**.
-- **Dynamic Two-Pillars Showcase:** Interactive split-screen portal detailing the operational scopes of the **Cyber Division** and **Psychology Division** with instant sub-domain routing.
-- **Half-Circle Trajectory Timeline:** Interactive chronological roadmap highlighting institutional milestones, legal charter registrations, and research publications.
-- **Institutional Partnerships Hub:** Structured framework for university MOUs, academic faculty collaborations, and campus outreach.
-- **Seamless Glassmorphic Aesthetics:** Deep frosted acrylics, radial ambient backdrops, subtle gold specular highlights, and seamless section transitions.
+### 1. The Two Pillars Gateway
+A dynamic interactive showcase introducing the foundation's two specialized branches:
+- **The Cyber Wing:** Focused on applied technology, software innovation, simulation environments, and college tech training.
+- **The Psychology Wing:** Focused on accessible counseling, community psychoeducation, youth wellness, and ethical care frameworks.
+
+### 2. Flagship Research & Public Initiatives
+An overview of cross-disciplinary explorations examining how digital technology, social media, and modern computational environments impact human behavior, cognitive health, and community trust.
+
+### 3. Institutional Roadmap & Milestones
+A chronological journey highlighting the foundation’s inception, institutional milestones, public outreach milestones, and academic collaborations.
+
+### 4. College & University Partnerships
+Information for academic institutions seeking collaborations, student workshops, joint research papers, and technical or mental wellness programs on campus.
+
+### 5. Fellowships & Student Opportunities
+A pathway for students and young researchers to discover open cohort positions, research internships, and collaborative opportunities under experienced mentors.
+
+### 6. Leadership & Academic Fellows
+Meet the research directors, mentors, and student innovators driving the foundation's projects and initiatives.
+
+### 7. Institutional Inquiries & Contact Desk
+Direct communication channels for institutional partnerships, academic outreach, student queries, and general foundation dialogues.
 
 ---
 
-## 🛠️ Technology Stack
+## 🌍 The RedKross Digital Ecosystem
 
-| Domain | Technology | Description |
+| Platform | Website | Purpose |
 | :--- | :--- | :--- |
-| **Framework** | React 18.3+ & Vite 6 | Modern modular SPA framework with instant HMR and optimized tree-shaking |
-| **3D Graphics** | Three.js & R3F (`@react-three/fiber`) | Procedural particles, camera rigs, and GPU-rendered lighting effects |
-| **Post-Processing**| `@react-three/postprocessing` | Bloom, Vignette, and Depth-of-Field visual pipelines |
-| **Animation** | GSAP 3 + ScrollTrigger & Lenis | Smooth momentum scrolling and scroll-linked timeline sequences |
-| **UI Components** | Framer Motion & Radix UI | Micro-interactions, accessible accordions, and dialog portals |
-| **Styling** | Tailwind CSS & PostCSS | Cyber-tactical utility design system with custom CSS variables |
-| **Icons** | Lucide React | Clean, scalable vector iconography |
+| **RedKross Foundation (Main)** | [redkross.org.in](https://redkross.org.in) | Umbrella governance, leadership, academic collaborations, and foundation overview |
+| **Cyber Wing** | [cyber.redkross.org.in](https://cyber.redkross.org.in) | Applied technology, software systems, campus technical workshops, and student labs |
+| **Psychology Wing** | [psychology.redkross.org.in](https://psychology.redkross.org.in) | Mental health counseling, grassroots psychoeducation, and community wellness |
 
 ---
 
-## 📂 Project Directory Structure
+## 📬 Connect with Us
 
-```text
-RedKross WebSite/
-├── public/                     # Static assets, logos, and branding
-├── src/
-│   ├── components/             # Reusable modular UI components
-│   │   ├── LoadingScreen.jsx   # Interactive initialization sequence
-│   │   ├── Navbar.jsx          # Glassmorphic adaptive navigation
-│   │   ├── Hero.jsx            # 3D interactive Three.js hero showcase
-│   │   ├── AboutSection.jsx    # Section 8 charter and mission statement
-│   │   ├── TwoPillarsShowcase.jsx # Dual-wing interactive gateway
-│   │   ├── SelectedResearchSection.jsx # Flagship cross-domain papers
-│   │   ├── HalfCircleTimeline.jsx      # Interactive institutional timeline
-│   │   ├── TeamSection.jsx     # Leadership and research fellows
-│   │   ├── CollegePartnershipSection.jsx # Academic MOU protocols
-│   │   ├── OpportunitiesSection.jsx      # Fellowships & student internships
-│   │   ├── GovernanceTrustSection.jsx    # Institutional governance
-│   │   ├── ContactSection.jsx  # Multi-channel institutional enquiry desk
-│   │   └── Footer.jsx          # Seamless blended glassmorphic footer
-│   ├── data/                   # Structured research datasets and bios
-│   ├── lib/                    # Shared utility functions and math helpers
-│   ├── App.jsx                 # Main layout controller and animation orchestrator
-│   ├── main.jsx                # Application root mount
-│   └── index.css               # Global styles, fonts, and custom utilities
-├── package.json                # Project dependencies and build scripts
-└── vite.config.js              # Vite bundler configuration
-```
-
----
-
-## 🚀 Quickstart & Development Setup
-
-### Prerequisites
-- **Node.js**: `v18.0.0` or higher
-- **npm**: `v9.0.0` or higher
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Atharv-design/redkross-foundation.git
-cd redkross-foundation
-```
-
-### 2. Install Dependencies
-```bash
-npm install
-```
-
-### 3. Launch Development Server
-```bash
-npm run dev
-```
-The application will be live at `http://localhost:5173`.
-
-### 4. Production Build
-```bash
-npm run build
-```
-Generates a minified, production-grade output in `dist/`.
-
-### 5. Preview Production Build
-```bash
-npm run preview
-```
-
----
-
-## 🔗 Cross-Domain Ecosystem Links
-
-| Platform | Production URL | Focus Area |
-| :--- | :--- | :--- |
-| **RedKross Foundation (Main)** | [redkross.org.in](https://redkross.org.in) | Umbrella governance, institutional partnerships, legal charter |
-| **Cyber Division** | [cyber.redkross.org.in](https://cyber.redkross.org.in) | Applied systems research, academic labs, technical training |
-| **Psychology Division** | [psychology.redkross.org.in](https://psychology.redkross.org.in) | Grassroots mental health, stepped-care, bilingual counseling |
-
----
-
-## 📜 Institutional Charter
-
-RedKross Research Foundation operates under non-commercial non-profit principles:
-- **Non-Commercial Mandate:** All research, public whitepapers, and grassroots community drives are non-profit initiatives.
-- **Open Science:** Where appropriate, educational materials, research frameworks, and academic toolkits are published for open review.
-
----
-
-## 👥 Contributors & Contact
-
-- **Lead Architect & Developer:** Atharv Gupta ([@Atharv-design](https://github.com/Atharv-design))
-- **Official Inquiries:** `contact@redkross.org.in`
+- **General Inquiries:** `contact@redkross.org.in`
 - **Institutional Partnerships:** `partnerships@redkross.org.in`
+- **Location:** India
 
 © 2026 RedKross Research Foundation. All rights reserved.
