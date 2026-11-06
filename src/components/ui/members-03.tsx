@@ -60,7 +60,7 @@ const members: Member[] = [
     role: "Development Head",
     badge: "Engineering & Architecture",
     bio: "Leads platform architecture, cybersecurity engineering, lab isolation frameworks and technical development.",
-    image: "/assets/team/atharv-gupta.jpg",
+    image: "/assets/team/Atharv-Gupta.jpeg",
     initials: "AG",
     linkedin: "https://www.linkedin.com/in/atharv-gupta-930009403",
     verified: true

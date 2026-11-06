@@ -97,7 +97,7 @@ export const REDKROSS_DATA = {
       name: "Atharv .R. Gupta",
       role: "Development Head",
       badge: "Engineering & Architecture",
-      image: "/assets/team/atharv-gupta.jpg",
+      image: "/assets/team/Atharv-Gupta.jpeg",
       linkedin: "https://www.linkedin.com/in/atharv-gupta-930009403",
       bio: "Leads platform architecture, cybersecurity engineering, lab isolation frameworks and technical development."
     }
